@@ -1,0 +1,11 @@
+# Carpetas de construcción (compilados)
+/build/
+/nbproject/private/
+/dist/
+
+# Archivos temporales de sistema
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
