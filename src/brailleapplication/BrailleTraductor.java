@@ -14,13 +14,13 @@ public class BrailleTraductor {
     private String input = "";
 
     public void setInput(String input) {
-        this.input = input;
+        this.input = input.toUpperCase();
     }
     
     public ArrayList<String> getTraduccion() {
         ArrayList<String> letrasBraille = new ArrayList();
-        for(char name : input.toCharArray()) {
-            letrasBraille.add(BrailleEnum.getPatronFromName(name));
+        for(int i = 0; i < input.length(); i++) {
+            letrasBraille.add(BrailleEnum.getPatronFromName(input.charAt(i)));
         }
         return letrasBraille;
     }
