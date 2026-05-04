@@ -3,7 +3,6 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package brailleapplication;
-
 /**
  *
  * @author danie
@@ -12,6 +11,7 @@ public class Interfazz extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(Interfazz.class.getName());
 
+    private BrailleTraductor traductor = new BrailleTraductor();
     /**
      * Creates new form Interfazz
      */
@@ -30,7 +30,7 @@ public class Interfazz extends javax.swing.JFrame {
 
         txtInput = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
-        panelResultado = new BrailleTraductor();
+        panelResultado = new BraillePanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -47,7 +47,7 @@ public class Interfazz extends javax.swing.JFrame {
         );
         panelResultadoLayout.setVerticalGroup(
             panelResultadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
+            .addGap(0, 134, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -76,7 +76,7 @@ public class Interfazz extends javax.swing.JFrame {
                 .addComponent(jButton1)
                 .addGap(18, 18, 18)
                 .addComponent(panelResultado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(52, Short.MAX_VALUE))
+                .addContainerGap(18, Short.MAX_VALUE))
         );
 
         pack();
@@ -85,7 +85,8 @@ public class Interfazz extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         String entrada = txtInput.getText();
-        ((BrailleTraductor)panelResultado).setTexto(entrada);
+        traductor.setInput(entrada);
+        ((BraillePanel)panelResultado).setPatrones(traductor.getTraduccion());
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
