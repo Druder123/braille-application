@@ -19,5 +19,18 @@ public enum BrailleEnum {
         this.patron = patron;
     }
 
-    public String getPatron() { return patron; }
+    public String getPatron() { 
+        return this.patron; 
+    }
+    
+    public static String getPatronFromName(char letter) {
+        String patron = "No existe";
+        for(BrailleEnum braille : BrailleEnum.values()) {
+            if(braille.name().equals(letter)) {
+                patron = braille.getPatron();
+                break;
+            }
+        }
+        return patron;
+    }
 }
